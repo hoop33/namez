@@ -1,0 +1,30 @@
+{
+  "name": "namez-server",
+  "version": "1.0.0",
+  "description": "Name generator server",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon src/index.js",
+    "start:ci": "node src/index.js"
+  },
+  "author": "Rob Warner",
+  "license": "ISC",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__utils"
+    ]
+  },
+  "dependencies": {
+    "apollo-datasource": "^0.3.0",
+    "apollo-datasource-rest": "^0.2.2",
+    "apollo-server": "^2.3.3",
+    "graphql": "^14.1.1",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0",
+    "node-fetch": "^2.3.0"
+  }
+}
