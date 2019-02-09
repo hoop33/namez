@@ -1,5 +1,5 @@
 {
-  "name": "namez",
+  "name": "namez-client",
   "version": "1.0.0",
   "description": "Name generator",
   "main": "index.js",
