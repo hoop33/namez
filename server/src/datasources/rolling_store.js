@@ -12,7 +12,15 @@ class RollingStore {
 
   addItem(item) {
     if (item && item.id) {
-      this.data.push(item);
+      // If the id exists, replace. Otherwise, append.
+      const index = this._findIndex(item.id);
+      if (index > -1) {
+        this.data[index] = item;
+      } else {
+        this.data.push(item);
+      }
+
+      // Adhere to maxSize
       while (this.data.length > this.maxSize) {
         this.data.shift();
       }
@@ -27,11 +35,15 @@ class RollingStore {
   }
 
   findItems(after, num) {
-    const index = after === '' ? 0 : this._findIndex(after) + 1;
+    const index = !after ? 0 : this._findIndex(after) + 1;
     if (num < 1 || index + num > this.data.length) {
       return [];
     }
     return this.data.slice(index, index + num);
+  }
+
+  size() {
+    return this.data.length;
   }
 
   _findIndex(id) {
