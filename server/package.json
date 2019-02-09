@@ -21,7 +21,8 @@
     "apollo-datasource-rest": "^0.2.2",
     "apollo-server": "^2.3.3",
     "graphql": "^14.1.1",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "jest": "^24.1.0",
