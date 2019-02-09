@@ -27,7 +27,7 @@ class RollingStore {
   }
 
   findItems(after, num) {
-    const index = after === "" ? 0 : this._findIndex(after) + 1;
+    const index = after === '' ? 0 : this._findIndex(after) + 1;
     if (num < 1 || index + num > this.data.length) {
       return [];
     }

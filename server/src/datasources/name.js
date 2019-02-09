@@ -1,5 +1,5 @@
-const { DataSource } = require("apollo-datasource");
-const shortid = require("shortid");
+const {DataSource} = require('apollo-datasource');
+const shortid = require('shortid');
 
 const MaxLimit = 20;
 const FetchNum = 100;
@@ -10,7 +10,7 @@ class NameAPI extends DataSource {
     this.store = store;
   }
 
-  async getNames(after = "", limit = 10, wordnikAPI) {
+  async getNames(after = '', limit = 10, wordnikAPI) {
     if (limit < 1) {
       return [];
     }
@@ -32,8 +32,8 @@ class NameAPI extends DataSource {
   }
 
   async getMoreNames(wordnikAPI) {
-    const adjectives = await wordnikAPI.getRandomWords("adjective", FetchNum);
-    const nouns = await wordnikAPI.getRandomWords("noun", FetchNum);
+    const adjectives = await wordnikAPI.getRandomWords('adjective', FetchNum);
+    const nouns = await wordnikAPI.getRandomWords('noun', FetchNum);
     if (
       Array.isArray(adjectives) &&
       Array.isArray(nouns) &&
@@ -48,7 +48,7 @@ class NameAPI extends DataSource {
   static nameReducer(adj, noun) {
     return {
       id: shortid.generate(),
-      text: `${adj} ${noun}`
+      text: `${adj} ${noun}`,
     };
   }
 }
