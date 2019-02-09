@@ -3,7 +3,7 @@ const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const NameAPI = require('./datasources/name');
 const WordnikAPI = require('./datasources/wordnik');
-const RollingStore = require('./rolling_store');
+const RollingStore = require('./datasources/rolling_store');
 
 const store = new RollingStore();
 const server = new ApolloServer({
