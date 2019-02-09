@@ -121,7 +121,7 @@ test('findItems should return empty when num is less than 1', () => {
   store.addItem({id: '1'});
   store.addItem({id: '2'});
   store.addItem({id: '3'});
-  items = store.findItems('1', 0);
+  const items = store.findItems('1', 0);
   expect(store.findItems()).toEqual([]);
 });
 
@@ -130,7 +130,7 @@ test('findItems should return empty when size is less than num', () => {
   store.addItem({id: '1'});
   store.addItem({id: '2'});
   store.addItem({id: '3'});
-  items = store.findItems('1', 4);
+  const items = store.findItems('1', 4);
   expect(store.findItems()).toEqual([]);
 });
 
@@ -139,7 +139,7 @@ test('findItems should return first item when after is null', () => {
   store.addItem({id: '1'});
   store.addItem({id: '2'});
   store.addItem({id: '3'});
-  items = store.findItems(null, 3);
+  const items = store.findItems(null, 3);
   expect(items.length).toBe(3);
   expect(items[0].id).toBe('1');
 });
@@ -149,7 +149,7 @@ test('findItems should return first item when after is undefined', () => {
   store.addItem({id: '1'});
   store.addItem({id: '2'});
   store.addItem({id: '3'});
-  items = store.findItems(undefined, 3);
+  const items = store.findItems(undefined, 3);
   expect(items.length).toBe(3);
   expect(items[0].id).toBe('1');
 });
@@ -159,7 +159,7 @@ test('findItems should return first item when after is blank', () => {
   store.addItem({id: '1'});
   store.addItem({id: '2'});
   store.addItem({id: '3'});
-  items = store.findItems('', 3);
+  const items = store.findItems('', 3);
   expect(items.length).toBe(3);
   expect(items[0].id).toBe('1');
 });
@@ -174,7 +174,7 @@ test('findItems should find item after id specified and return items', () => {
   store.addItem({id: '6'});
   store.addItem({id: '7'});
   store.addItem({id: '8'});
-  items = store.findItems('4', 3);
+  const items = store.findItems('4', 3);
   expect(items.length).toBe(3);
   expect(items[0].id).toBe('5');
   expect(items[1].id).toBe('6');
