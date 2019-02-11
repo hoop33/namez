@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
-
+import Colors from '../components/colors';
 import {NameTile, Header} from '../components';
 
 const GET_NAMES = gql`
@@ -16,6 +16,8 @@ const GET_NAMES = gql`
   }
 `;
 
+const colors = new Colors();
+
 export default function Names() {
   return (
     <Query query={GET_NAMES}>
@@ -27,9 +29,16 @@ export default function Names() {
             <Header />
             {data.names &&
               data.names.nodes &&
-              data.names.nodes.map(name => (
-                <NameTile key={name.id} name={name} />
-              ))}
+              data.names.nodes.map(name => {
+                return (
+                  <NameTile
+                    key={name.id}
+                    name={name}
+                    color={colors.nextColor()}
+                  />
+                );
+              })}
+            )}
           </Fragment>
         );
       }}
