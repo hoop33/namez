@@ -38,7 +38,6 @@ export default function Names() {
                   />
                 );
               })}
-            )}
           </Fragment>
         );
       }}
