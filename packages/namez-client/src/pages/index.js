@@ -1,11 +1,12 @@
 import React, {Fragment} from 'react';
 
 import Names from './names';
-import {Footer, PageContainer} from '../components';
+import {Footer, Header, PageContainer} from '../components';
 
 export default function Pages() {
   return (
     <Fragment>
+      <Header />
       <PageContainer>
         <Names path="/" />
       </PageContainer>

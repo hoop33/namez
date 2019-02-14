@@ -1,8 +1,9 @@
 import React, {Fragment} from 'react';
 import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
+import styled from 'styled-components';
 import Colors from '../components/colors';
-import {NameTile, Header} from '../components';
+import {NameTile} from '../components';
 
 const GET_NAMES = gql`
   query nameList($after: String) {
@@ -18,6 +19,11 @@ const GET_NAMES = gql`
 
 const colors = new Colors();
 
+const NamesContainer = styled.div`
+  text-align: center;
+  line-height: 400%;
+`;
+
 export default function Names() {
   return (
     <Query query={GET_NAMES}>
@@ -26,18 +32,19 @@ export default function Names() {
 
         return (
           <Fragment>
-            <Header />
-            {data.names &&
-              data.names.nodes &&
-              data.names.nodes.map(name => {
-                return (
-                  <NameTile
-                    key={name.id}
-                    name={name}
-                    color={colors.nextColor()}
-                  />
-                );
-              })}
+            <NamesContainer>
+              {data.names &&
+                data.names.nodes &&
+                data.names.nodes.map(name => {
+                  return (
+                    <NameTile
+                      key={name.id}
+                      name={name}
+                      color={colors.nextColor()}
+                    />
+                  );
+                })}
+            </NamesContainer>
           </Fragment>
         );
       }}
