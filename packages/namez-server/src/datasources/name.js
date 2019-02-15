@@ -50,17 +50,9 @@ class NameAPI extends DataSource {
       id: shortid.generate(),
       text:
         adj && noun
-          ? `${NameAPI.toTitleCase(adj)} ${NameAPI.toTitleCase(noun)}`
+          ? `${adj.toLowerCase()} ${noun.toLowerCase()}`
           : '',
     };
-  }
-
-  static toTitleCase(str) {
-    if (!str) return '';
-    const len = str.length;
-    return `${len > 0 ? str[0].toUpperCase() : ''}${
-      len > 1 ? str.slice(1).toLowerCase() : ''
-    }`;
   }
 }
 

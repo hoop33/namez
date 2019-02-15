@@ -12,51 +12,51 @@ describe('[NameAPI.nameReducer]', () => {
   });
 
   it('should create text from adj and noun', () => {
-    expect(NameAPI.nameReducer('Adj', 'Noun').text).toBe('Adj Noun');
+    expect(NameAPI.nameReducer('adj', 'noun').text).toBe('adj noun');
   });
 
   it('should create blank text when noun not present', () => {
-    expect(NameAPI.nameReducer('Adj').text).toBe('');
+    expect(NameAPI.nameReducer('adj').text).toBe('');
   });
 
   it('should create blank text when noun is null', () => {
-    expect(NameAPI.nameReducer('Adj', null).text).toBe('');
+    expect(NameAPI.nameReducer('adj', null).text).toBe('');
   });
 
   it('should create blank text when noun is undefined', () => {
-    expect(NameAPI.nameReducer('Adj', undefined).text).toBe('');
+    expect(NameAPI.nameReducer('adj', undefined).text).toBe('');
   });
 
   it('should create blank text when noun is blank', () => {
-    expect(NameAPI.nameReducer('Adj', '').text).toBe('');
+    expect(NameAPI.nameReducer('adj', '').text).toBe('');
   });
 
   it('should create blank text when adj is null', () => {
-    expect(NameAPI.nameReducer(null, 'Noun').text).toBe('');
+    expect(NameAPI.nameReducer(null, 'noun').text).toBe('');
   });
 
   it('should create blank text when noun is undefined', () => {
-    expect(NameAPI.nameReducer(undefined, 'Noun').text).toBe('');
+    expect(NameAPI.nameReducer(undefined, 'noun').text).toBe('');
   });
 
   it('should create blank text when noun is blank', () => {
-    expect(NameAPI.nameReducer('', 'Noun').text).toBe('');
+    expect(NameAPI.nameReducer('', 'noun').text).toBe('');
   });
 
-  it('should create title case when all lowercase', () => {
-    expect(NameAPI.nameReducer('adj', 'noun').text).toBe('Adj Noun');
+  it('should create lowercase when all lowercase', () => {
+    expect(NameAPI.nameReducer('adj', 'noun').text).toBe('adj noun');
   });
 
-  it('should create title case when all uppercase', () => {
-    expect(NameAPI.nameReducer('ADJ', 'NOUN').text).toBe('Adj Noun');
+  it('should create lowercase when all uppercase', () => {
+    expect(NameAPI.nameReducer('ADJ', 'NOUN').text).toBe('adj noun');
   });
 
-  it('should create title case when all title case', () => {
-    expect(NameAPI.nameReducer('Adj', 'Noun').text).toBe('Adj Noun');
+  it('should create lowercase when all title case', () => {
+    expect(NameAPI.nameReducer('Adj', 'Noun').text).toBe('adj noun');
   });
 
   it('should handle 1-length strings', () => {
-    expect(NameAPI.nameReducer('a', 'n').text).toBe('A N');
+    expect(NameAPI.nameReducer('a', 'n').text).toBe('a n');
   });
 });
 
@@ -78,7 +78,7 @@ describe('[NameAPI.getNames]', () => {
     const res = await names.getNames('', 1, wordnik);
     expect(res.length).toBe(1);
     expect(res[0].id).toBeTruthy();
-    expect(res[0].text).toBe('First Apple');
+    expect(res[0].text).toBe('first apple');
   });
 
   it('should return five items when limit is 5', async () => {
