@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const NameTile = styled.div`
   font-size: 48px;
+  text-transform: capitalize;
 `;
 
 export default ({name, color}) => {
