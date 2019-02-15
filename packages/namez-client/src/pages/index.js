@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: Acme, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #363636;
+    margin: 0;
+    padding: 0;
   }
 `;
 
